@@ -85,3 +85,26 @@ typedef struct listint_s
   * Prints the array after each swap.
   * [3-O](./3-O): Text file containing the best, average, and worst case time
   complexities of the Quick Sort Lomuto Partition scheme algorithm, one per line.
+
+
+  ## Quick start :runner:
+Git clone the repository:
+
+```
+git clone https://github.com/cbarros7/sorting_algorithms.git
+```
+
+## Bugs :loudspeaker:
+No known bugs.
+
+
+## Authors :black_nib:
+**Carlos Barros** [Github](https://github.com/cbarros7)
+                  [LinkdIn](https://www.linkedin.com/in/carlosbarros7/)
+                  [Twitter](https://twitter.com/cbarros27)
+                  [Medium](https://medium.com/@cbarros7)
+
+**Ronnie Barrios** [Github](https://github.com/ronniebm)
+                  [LinkdIn](https://www.linkedin.com/in/ronnie-barrios-2b21b61a1/?originalSubdomain=co)
+                  [Twitter](https://twitter.com/ronniealberto)
+                  [Medium](https://medium.com/@RonnieBM)

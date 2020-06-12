@@ -1,6 +1,6 @@
 # C - Sorting algorithms & Big O :robot:
 
-In this project, I implemented twelve different sorting algorithms like Bubble sort, insertion sort, selection sort and quick sort. 
+In this project, we implemented twelve different sorting algorithms like Bubble sort, insertion sort, selection sort and quick sort. 
 
 ## Requeriments :bookmark_tabs:
 

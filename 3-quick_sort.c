@@ -1,84 +1,76 @@
 #include "sort.h"
 
 /**
- * make_swap - it swaps two numbers.
- * @a: first integer.
- * @b: second integer.
+ * swap - swap two numbers
+ * @a: first number
+ * @b: second number
  **/
-void make_swap(int *a, int *b)
+void swap(int *a, int *b)
 {
-	int tmp;
-
-	tmp = *a;
+	int temp = *a;
 	*a = *b;
-	*b = tmp;
-}
-/**
- * lomuto_sort -  Order a subset of an array of integers according to
- * the lomuto partition scheme (last element as pivot) 
- * @array: array 
- * @start: first position array
- * @end: last position array
- * @size: size of array
- **/
-void lomuto_sort(int *array, int start, int end, size_t size)
-{
-	int partition;
-
-	if (end - start > 0)
-	{
-		partition = lomuto_partition(array, start, end, size);
-		lomuto_sort(array, start, partition - 1, size);
-		lomuto_sort(array, partition + 1, end, size);
-	}
+	*b = temp;
 }
 
 /**
- * lomuto - partition array. 
- * @array: array 
- * @start: first position array
- * @end: last position array
- * @size: size of array
- **/
-int lomuto_partition(int *array, int start, int end, size_t size)
+ * partition - split array around pivot
+ * @arr: array
+ * @first: first element
+ * @last: last element
+ * @size: size
+ * Return: i
+ */
+int partition(int *arr, int first, int last, size_t size)
 {
-	int *pivot, above, below;
+	int pivot = arr[last];
+	int i = first;
+	int j;
 
-	pivot = array + end;
-	for (above = below = start; below < end; below++)
+	for (j = first; j < last; j++)
 	{
-		if (array[below] < *pivot)
+		if (arr[j] <= pivot)
 		{
-			if (above < below)
-			{
-				make_swap(array + below, array + above);
-				print_array(array, size);
-			}
-			above++;
+			swap(&arr[i], &arr[j]);
+			if (i != j)
+				print_array(arr, size);
+			i++;
 		}
 	}
-
-	if (array[above] > *pivot)
-	{
-		make_swap(array + above, pivot);
-		print_array(array, size);
-	}
-
-	return (above);
+	swap(&arr[i], &arr[last]);
+	if (i != j)
+		print_array(arr, size);
+	return (i);
 }
 
 /**
- * selection_sort - sorts an array using
- * selection sort algorithm.
- * @array: a given array.
- * @size: size of the array.
- **/
+ * quickSort - sort a part of the list
+* @arr: array
+ * @first: first element
+ * @last: last element
+ * @size: size
+ * Return: nothing
+ */
+void quickSort(int *arr, int first, int last, size_t size)
+{
+	int pivot;
 
+	if (first < last)
+	{
+		pivot = partition(arr, first, last, size);
+		quickSort(arr, first, pivot - 1, size);
+		quickSort(arr, pivot + 1, last, size);
+	}
+}
+
+/**
+ * quick_sort - quick sort method array
+ * @array: array
+ * @size: size
+ * Return: nothing
+ */
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
+	if (size < 2)
 		return;
-
-	lomuto_sort(array, 0, size - 1, size);
-
+	quickSort(array, 0, size - 1, size);
 }
